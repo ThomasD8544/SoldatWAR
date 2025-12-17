@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@700&display=swap');
+
+body {
+    margin: 0;
+    overflow: hidden;
+    background: #87CEEB;
+    font-family: 'Roboto', sans-serif;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* New Menu Styles */
+.menu-box {
+    background: linear-gradient(135deg, rgba(20, 30, 48, 0.95), rgba(36, 59, 85, 0.95));
+    border: 4px solid #00aaff;
+    border-radius: 20px;
+    padding: 40px 60px;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(0, 170, 255, 0.5), 0 10px 20px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    transform: scale(1);
+    animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    max-width: 90%;
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+h1 {
+    font-family: 'Anton', sans-serif;
+    font-size: 72px;
+    margin: 0 0 20px 0;
+    color: #fff;
+    text-shadow: 0 5px 0 #0055aa, 0 10px 10px rgba(0, 0, 0, 0.5);
+    background: -webkit-linear-gradient(#00ffff, #0088ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px #fff;
+}
+
+.game-over-text {
+    background: -webkit-linear-gradient(#ff0000, #aa0000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 5px 0 #550000;
+}
+
+.subtitle {
+    color: #ccc;
+    font-size: 18px;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.btn {
+    background: linear-gradient(180deg, #00ccff 0%, #0066ff 100%);
+    border: none;
+    padding: 20px 50px;
+    font-size: 32px;
+    color: white;
+    font-family: 'Anton', sans-serif;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 0 #0044aa, 0 15px 20px rgba(0, 0, 0, 0.4);
+    transition: all 0.1s;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.btn:active {
+    transform: translateY(6px);
+    box-shadow: 0 2px 0 #0044aa;
+}
+
+.tips {
+    margin-top: 30px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Stats */
+.big-count {
+    font-family: 'Anton', sans-serif;
+    font-size: 64px;
+    color: white;
+    text-shadow: 3px 3px 0 #000;
+    line-height: 1;
+}
+
+.info-text {
+    font-family: 'Anton', sans-serif;
+    font-size: 32px;
+    color: #ffd700;
+    text-shadow: 2px 2px 0 #000;
+}
+
+.ui-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.hud-top {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.score-box {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.label {
+    font-size: 12px;
+    color: #ccc;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: auto;
+    backdrop-filter: blur(8px);
+    z-index: 10;
+}
+
+.hidden {
+    display: none !important;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Zombie Rush 3D</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js"
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="canvas-container"></div>
+
+    <div class="ui-layer">
+        <div class="hud-top">
+            <div class="score-box">
+                <div class="label">ARMY</div>
+                <div id="score-val" class="big-count">1</div>
+            </div>
+            <div class="score-box">
+                <div class="label">LEVEL</div>
+                <div id="wave-num" class="info-text">1</div>
+            </div>
+            <div class="score-box">
+                <div class="label">SCORE</div>
+                <div id="score-total" class="info-text">0</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Start Screen -->
+    <div id="start-screen" class="screen">
+        <div class="menu-box">
+            <h1>LAST SURVIVOR</h1>
+            <p class="subtitle">BUILD YOUR ARMY. SURVIVE THE HORDE.</p>
+            <button id="start-btn" class="btn">PLAY NOW</button>
+            <div class="tips">DRAG TO MOVE • GATES MULTIPLY</div>
+        </div>
+    </div>
+
+    <!-- Game Over Screen -->
+    <div id="game-over-screen" class="screen hidden">
+        <div class="menu-box">
+            <h1 class="game-over-text">DEFEATED</h1>
+            <div class="stats">
+                <p>SURVIVED WAVES: <span id="final-wave" style="color:white">0</span></p>
+            </div>
+            <button id="restart-btn" class="btn">TRY AGAIN</button>
+        </div>
+    </div>
+
+    <script type="module" src="game.js"></script>
+</body>
+
+</html>
