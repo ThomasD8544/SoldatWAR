@@ -68,6 +68,11 @@ const Geos = {
     zBody: new THREE.BoxGeometry(0.7, 1.2, 0.5),
     zHead: new THREE.BoxGeometry(0.5, 0.5, 0.5),
     zArm: new THREE.BoxGeometry(0.25, 0.8, 0.25),
+
+    // Dragon Parts
+    dBody: new THREE.ConeGeometry(0.8, 2, 8),
+    dWing: new THREE.BoxGeometry(2, 0.1, 1),
+
     tBody: new THREE.BoxGeometry(2.2, 1.2, 3),
     tTurret: new THREE.BoxGeometry(1.4, 0.7, 1.8),
     tBarrel: new THREE.CylinderGeometry(0.25, 0.25, 3)
@@ -83,7 +88,9 @@ let wave = 1;
 let playerUnits = [];
 let visualUnits = [];
 let visualTanks = [];
+let visualMegaTank = null; // Mega Tank
 let isTankMode = false;
+let isMegaTankMode = false;
 let currentWeapon = WEAPONS.DEFAULT;
 
 let zombies = [];
@@ -397,7 +404,26 @@ function createZombie(x, z, hp, isBoss) {
     const lA = new THREE.Mesh(Geos.zArm, Mats.zombieSkin); lA.position.set(-0.5, 1.2, 0.4); lA.rotation.x = -1.5; g.add(lA);
     const rA = new THREE.Mesh(Geos.zArm, Mats.zombieSkin); rA.position.set(0.5, 1.2, 0.4); rA.rotation.x = -1.5; g.add(rA);
     scene.add(g);
-    zombies.push({ mesh: g, hp: hp, isBoss: isBoss });
+    zombies.push({ mesh: g, hp: hp, isBoss: isBoss, isDragon: false });
+}
+
+function createDragon(x, z, hp) {
+    const g = new THREE.Group();
+    g.position.set(x, 5, z); // High up
+
+    // Dragon Visual
+    const body = new THREE.Mesh(Geos.dBody, Mats.dragon);
+    body.rotation.x = -Math.PI / 2;
+    g.add(body);
+
+    const lWing = new THREE.Mesh(Geos.dWing, Mats.dragon);
+    lWing.position.set(-1.2, 0, 0); g.add(lWing);
+
+    const rWing = new THREE.Mesh(Geos.dWing, Mats.dragon);
+    rWing.position.set(1.2, 0, 0); g.add(rWing);
+
+    scene.add(g);
+    zombies.push({ mesh: g, hp: hp, isBoss: true, isDragon: true });
 }
 
 function createSoldierVisual() {
